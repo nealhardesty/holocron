@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<movie>
+  <title>The Matrix</title>
+  <year>1999</year>
+  <plot>A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.</plot>
+  <mpaa>R</mpaa>
+  <runtime>136</runtime>
+  <genre>Science Fiction</genre>
+  <genre>Action</genre>
+  <director>Lana Wachowski</director>
+  <director>Lilly Wachowski</director>
+  <actor>
+    <name>Keanu Reeves</name>
+    <role>Neo</role>
+  </actor>
+  <actor>
+    <name>Laurence Fishburne</name>
+    <role>Morpheus</role>
+  </actor>
+  <actor>
+    <name>Carrie-Anne Moss</name>
+    <role>Trinity</role>
+  </actor>
+</movie>

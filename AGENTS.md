@@ -78,6 +78,22 @@ There will be a DESIGN.md file describing the project (a PRD "light").  Read it 
 - Install packages with `uv pip install` or `uv add`
 - Sync dependencies with `uv pip sync requirements.txt` or `uv sync`
 
+## Versioning
+- **`pyproject.toml` is the single source of truth** for the project version — never duplicate it elsewhere as a hardcoded string
+- At runtime, read the version via `importlib.metadata.version("package-name")` with a `"0.0.0-dev"` fallback:
+  ```python
+  from importlib.metadata import PackageNotFoundError, version as _pkg_version
+  try:
+      VERSION = _pkg_version("my-package")
+  except PackageNotFoundError:
+      VERSION = "0.0.0-dev"
+  ```
+- The Makefile MUST include version management targets:
+  - `make version` — print current version from `pyproject.toml`
+  - `make version-increment` — bump the patch number in `pyproject.toml` in-place using `sed`
+  - `make push` — run `format`, `lint`, `test`, bump patch version, `git commit -m "release: vX.Y.Z.  $(gitsum)"`, `git push`, `git tag`, `git push --tags`
+  - Always use `gitsum` in the commit message of the `push` target to embed a git summary
+
 ## Makefile Requirement
 **MANDATORY: Every project MUST have a Makefile kept up to date at all times**
 - Create a `Makefile` at the project root for all projects

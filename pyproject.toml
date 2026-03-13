@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "holocron"
+version = "0.1.1"
+description = "Local Media Intelligence System — Plex → NFO → DuckDB → MCP"
+requires-python = ">=3.10"
+dependencies = [
+    "plexapi>=4.15",
+    "duckdb>=0.10",
+    "mcp[cli]>=1.0",
+    "click>=8.1",
+    "lxml>=5.0",
+]
+
+[project.scripts]
+holocron-extract = "holocron.extractor.cli:main"
+holocron-materialize = "holocron.materializer.cli:main"
+holocron-serve = "holocron.server.main:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.4",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/holocron"]
+
+[tool.ruff]
+line-length = 88
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

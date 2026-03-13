@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<movie>
+  <title>Inception</title>
+  <year>2010</year>
+  <plot>A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea.</plot>
+  <mpaa>PG-13</mpaa>
+  <runtime>148</runtime>
+  <genre>Science Fiction</genre>
+  <genre>Thriller</genre>
+  <director>Christopher Nolan</director>
+  <actor>
+    <name>Leonardo DiCaprio</name>
+    <role>Cobb</role>
+  </actor>
+  <actor>
+    <name>Elliot Page</name>
+    <role>Ariadne</role>
+  </actor>
+</movie>
